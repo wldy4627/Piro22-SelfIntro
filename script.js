@@ -46,3 +46,18 @@ sections.forEach((section, index) => {
         }
     })
 })
+
+setInterval(() => {
+    sections[currentIndex].style.display = 'none';
+    if (currentIndex == (sections.length - 1)) {  // 더 오른쪽으로 갈 section이 없다면 (즉, 마지막 section)
+        currentIndex = 0;  // 처음의 section으로 이동
+    } else {
+        currentIndex++;
+    }
+
+    // currentIndex = (currentIndex + 1) % sections.length;
+    // section은 총 4개 currentIndes (0 ~ 3)
+    // currentIndex가 3이라고 한다면
+    // currentIndex = 4 % 4 = 0
+    sections[currentIndex].style.display = 'flex';
+}, 3000);
